@@ -1,14 +1,15 @@
 var app = angular.module("myLogin",["firebase"]);
-var appindex = angular.module("appSaleb",["firebase"]);
 var refusers = new Firebase("https://dack-app.firebaseio.com/users");
 var refadmin = new Firebase("https://dack-app.firebaseio.com/admins");
-app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObject, $window)
+var ref=new Firebase("https://dack-app.firebaseio.com/");
+app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObject, $window,$firebaseAuth)
 {
-	$scope.isSignup=true;
+		$scope.isSignup=true;
         $scope.isAdmin = false;
         $scope.isUser = false;
         $scope.usersRef = $firebaseArray(refusers);
         $scope.adminRef = $firebaseArray(refadmin);
+		$scope.authObj=$firebaseAuth(ref);
         
 	$scope.KiemTraRong=function(str)
 	{
@@ -73,6 +74,35 @@ app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObje
 		}
                  
 	};
+	$scope.google=function()
+	{
+		$scope.authObj.$authWithOAuthPopup("google").then(function(authData) {
+			console.log("Logged in as:", authData.uid);
+			$scope.login=true;
+			$window.location.href = "index.html";
+			//alert("Login with Google thành công ");
+		}).then(function() {
+			// Never called because of page redirect
+		}).catch(function(error) {
+			console.error("Authentication failed:", error);
+			alert("Login with Google thất bại ");
+		});
+
+	};
+	$scope.facebook=function()
+	{
+		ref.authWithOAuthPopup("facebook", function (error, authData) {
+			if (error) {
+				console.log("Login Failed!", error);
+				alert("Login with Google thất bại ");
+			} else {
+				$scope.login = true;
+				$window.location.href = "index.html";
+
+
+			}
+		});
+	};
         $scope.Login=function()
 	{
              angular.forEach($scope.adminRef, function(value){
@@ -92,11 +122,8 @@ app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObje
             if($scope.isAdmin==false && $scope.isUser==false){
                     alert("Đăng nhập thất bại");
             }
-        };       
-});
-appindex.controller('myIndexController',function($scope,$window)
-{
-        $scope.loginindex = function(){
+        };
+        $scope.loginindex=function(){
             $window.location.href = "login.html";
         };
 });
