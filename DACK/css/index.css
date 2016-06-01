@@ -261,6 +261,13 @@ h2.title {
 .single-products {
     position: relative;
 }
+.product-overlay h2{
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
 .product-overlay {
     background:#FE980F;
     top: 0;
@@ -270,15 +277,13 @@ h2.title {
     transition: height 500ms ease 0s;
     width: 100%;
     display: block;
-}
-.product-overlay .overlay-content {
-    bottom: 0;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    width: 100%;
+
 }
 
+.single-products:hover .product-overlay {
+    display:block;
+    height:100%;
+}
 .product-overlay .overlay-content {
     bottom: 0;
     position: absolute;
@@ -297,7 +302,10 @@ h2.title {
     margin-bottom: 25px;
 }
 
-
+.product-overlay .add-to-cart:hover {
+    background:#fff;
+    color: #FE980F;
+}
 
 
 .product-overlay p{
@@ -306,7 +314,6 @@ h2.title {
     font-weight: 400;
     color: #fff;
 }
-
 
 
 .add-to-cart {
