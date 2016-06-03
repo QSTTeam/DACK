@@ -1,9 +1,8 @@
-var app = angular.module("myLogin",["firebase"]);
-var refusers = new Firebase("https://dack-app.firebaseio.com/users");
-var refadmin = new Firebase("https://dack-app.firebaseio.com/admins");
-var ref=new Firebase("https://dack-app.firebaseio.com/");
-app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObject, $window,$firebaseAuth)
+login.controller('myLoginController',function($scope,$firebaseArray, $firebaseObject, $window,$firebaseAuth,myService)
 {
+	var refusers = new Firebase("https://dack-app.firebaseio.com/users");
+	var refadmin = new Firebase("https://dack-app.firebaseio.com/admins");
+	var ref=new Firebase("https://dack-app.firebaseio.com/");
 		$scope.isSignup=true;
         $scope.isAdmin = false;
         $scope.isUser = false;
@@ -11,25 +10,7 @@ app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObje
         $scope.adminRef = $firebaseArray(refadmin);
 		$scope.authObj=$firebaseAuth(ref);
         
-	$scope.KiemTraRong=function(str)
-	{
-		return angular.isUndefined(str);
-	};
-	$scope.KiemTraBangNhau=function(str1,str2)
-	{
-		return angular.equals(str1,str2);
-	};
-	$scope.KiemTraDoDai=function(str)
-	{
-		if(str.length>=6 && str.length<=20 )
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	};
+
 	$scope.Clear=function()
 	{
 		$scope.UsernameSignup="";
@@ -38,17 +19,17 @@ app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObje
 	}
 	$scope.Signup=function()
 	{
-		if($scope.KiemTraRong($scope.UsernameSignup)==true || $scope.KiemTraDoDai($scope.UsernameSignup)==false)
+		if(myService.KiemTraRong($scope.UsernameSignup)==true || myService.KiemTraDoDai($scope.UsernameSignup)==false)
 		{
 			alert("Độ dài Username phài từ 6 đến 20 kí tự");
 			$scope.isSignup=false;
 		}
-		if($scope.KiemTraRong($scope.PasswordSignup)==true || $scope.KiemTraDoDai($scope.PasswordSignup)==false )
+		if(myService.KiemTraRong($scope.PasswordSignup)==true || myService.KiemTraDoDai($scope.PasswordSignup)==false )
 		{
 			alert("Độ dài Password phài từ 6 đến 20 kí tự");
 			$scope.isSignup=false;
 		}
-		if($scope.KiemTraBangNhau($scope.PasswordSignup,$scope.RetypePasswordSignup)==false)
+		if(myService.KiemTraBangNhau($scope.PasswordSignup,$scope.RetypePasswordSignup)==false)
 		{
 			alert("Password và RetypePassword phải trùng nhau");
 			$scope.isSignup=false;
