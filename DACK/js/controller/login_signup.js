@@ -1,4 +1,4 @@
-login.controller('myLoginController',function($scope,$firebaseArray, $firebaseObject, $window,$firebaseAuth,myService)
+app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObject, $window,$firebaseAuth)
 {
 	var refusers = new Firebase("https://dack-app.firebaseio.com/users");
 	var refadmin = new Firebase("https://dack-app.firebaseio.com/admins");

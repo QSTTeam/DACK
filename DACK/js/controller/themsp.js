@@ -5,7 +5,7 @@ var ramref = new Firebase("https://dack-app.firebaseio.com/data/ram");
 var ocungref = new Firebase("https://dack-app.firebaseio.com/data/ocung");
 //angular.module('MoreProducts',["firebase"])
 // .controller('ProductController', ['$scope', function($scope,$firebaseArray) {
-var app = angular.module("MoreProducts", ["firebase"]);
+
 app.controller("ProductController", function($scope,$firebaseArray, $firebaseObject,$firebaseAuth,$window) {
     $scope.laptopRef = $firebaseArray(laptopref);
     $scope.chuotRef = $firebaseArray(chuotref);
