@@ -3,9 +3,10 @@
 app.controller("customersCtrl", function($scope,$firebaseArray, $firebaseObject,$firebaseAuth,$window) {
    var ref = new Firebase("https://dack-app.firebaseio.com/")
    $scope.datalaptop = $firebaseArray(ref.child("data").child("laptop"));
-
+   $scope.isadmin = false;
    $scope.loginindex = function(){
-      $window.location.href="login.html";
+      $scope.islogin = true;
+      //$window.location.href="login.html";
    };
 
    $scope.Muahang = function(){

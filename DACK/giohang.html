@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="appSaleb">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Giỏ hàng</title>
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/giohang.css" rel="stylesheet">
+    <link href="font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+    <script src="js/module/app.js"></script>
+    <script src="js/controller/giohang.js"></script>
+</head>
+<body ng-controller="giohangctrl">
+    <div ng-include="'component/header.htm'"></div>
+    <div class="col-sm-12  formgiohang">
+        <a href="index.html">Tiếp tục mua hàng</a>
+        <h3><b>Giỏ hàng của tôi:</b></h3>
+        <div class="col-sm-12">
+
+            <div class="col-sm-8">
+                <div class="col-sm-3">
+
+                </div>
+                <div class="col-sm-6">
+                    <h4>Tên sản phẩm</h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Giá</h4>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <h4>Thông tin đơn hàng</h4>
+            </div>
+
+
+        </div>
+        <div class="col-sm-8 giohangitem" >
+            <div class="giohang-item-detail col-sm-12">
+                <div class="col-sm-3">
+                    <img src="images/dell-1.jpg"/>
+                </div>
+                <div class="col-sm-6">
+                    <h4>Dell Vostro 3012</h4>
+                </div>
+                <div class="col-sm-3">
+                    <p>1000000d</p>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-sm-4 form-tinhtien">
+
+            <hr/>
+            <div class="col-sm-12">
+                <div class="col-sm-8">Tạm tính: </div>
+                <div class="col-sm-4">{{tinhtiengiohang}}</div>
+            </div>
+            <br/><br/>
+            <div class="col-sm-12">
+                <div class="col-sm-8">Khuyến mãi: </div>
+                <div class="col-sm-4">{{tienkhuyenmai}}</div>
+            </div>
+            <br/>
+            <hr/>
+            <div class="col-sm-12">
+                <div class="col-sm-8">Thành tiền(đã bao gồm VAT): </div>
+                <div class="col-sm-4">{{tongtien}}</div>
+            </div>
+            <br/>
+            <input type="submit"value="Thanh toán đơn hàng"/>
+        </div>
+
+
+    </div>
+    
+    <div ng-include="'component/footer.htm'"></div>
+</body>
+</html>

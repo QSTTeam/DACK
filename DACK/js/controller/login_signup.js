@@ -19,21 +19,6 @@ app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObje
 	}
 	$scope.Signup=function()
 	{
-		if(myService.KiemTraRong($scope.UsernameSignup)==true || myService.KiemTraDoDai($scope.UsernameSignup)==false)
-		{
-			alert("Độ dài Username phài từ 6 đến 20 kí tự");
-			$scope.isSignup=false;
-		}
-		if(myService.KiemTraRong($scope.PasswordSignup)==true || myService.KiemTraDoDai($scope.PasswordSignup)==false )
-		{
-			alert("Độ dài Password phài từ 6 đến 20 kí tự");
-			$scope.isSignup=false;
-		}
-		if(myService.KiemTraBangNhau($scope.PasswordSignup,$scope.RetypePasswordSignup)==false)
-		{
-			alert("Password và RetypePassword phải trùng nhau");
-			$scope.isSignup=false;
-		}
 
 		if($scope.isSignup==true) //m bỏ code push vào hàm này
 		{       
@@ -58,9 +43,9 @@ app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObje
 	$scope.google=function()
 	{
 		$scope.authObj.$authWithOAuthPopup("google").then(function(authData) {
-			console.log("Logged in as:", authData.uid);
-			$scope.login=true;
-			$window.location.href = "index.html";
+			console.log("Logged in as:", authData);
+			//$scope.login=true;
+			//$window.location.href = "index.html";
 			//alert("Login with Google thành công ");
 		}).then(function() {
 			// Never called because of page redirect
@@ -75,10 +60,11 @@ app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObje
 		ref.authWithOAuthPopup("facebook", function (error, authData) {
 			if (error) {
 				console.log("Login Failed!", error);
-				alert("Login with Google thất bại ");
+				alert("Login with Facebook thất bại ");
 			} else {
-				$scope.login = true;
-				$window.location.href = "index.html";
+				console.log(authData.facebook.displayName);
+				//$scope.login = true;
+				//$window.location.href = "index.html";
 
 
 			}

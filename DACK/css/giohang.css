@@ -1,0 +1,34 @@
+.formgiohang{
+    background-color: #ffffff;
+}
+
+.formgiohang h4{
+    font-family: 'Roboto', sans-serif;
+    margin-left: 10px;
+
+}
+.formgiohang input{
+    background-color: #ec971f ;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    height: 40px;
+    padding-left: 10px;
+    margin-left: 10%;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.giohang-item-detail{
+    display: inline;
+}
+.giohang-item-detail img{
+    width: 100px;
+    height: 100px ;
+    display: inline;
+}
+.giohang-item-detail h4 p {
+    margin-top: 20px;
+}
+.form-tinhtien{
+    font-family: 'Roboto', sans-serif;
+}

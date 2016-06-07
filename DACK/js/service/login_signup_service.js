@@ -1,7 +1,7 @@
 /**
  * Created by Hoang Son on 6/3/2016.
  */
-login.service('myService',function()
+app.service('myService',function()
 {
     this.KiemTraRong=function(str)
     {

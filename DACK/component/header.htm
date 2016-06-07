@@ -12,15 +12,20 @@
             </div>
             <div class="col-sm-6 " id="iconshare">
                 <div class="pull-right">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav" ng-show="islogin">
+                        <li>
+                            <p>Xin chào {{tentaikhoan}}</p>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav" ng-hide="islogin">
                         <li>
                             <a ng-click="facebook()" class="btn btn-block btn-social btn-facebook">
-                                <span class="fa fa-facebook"></span> Sign in with Facebook
+                                <span class="fa fa-facebook"></span> Đăng nhập với Facebook
                             </a>
                         </li>
                         <li>
                             <a ng-click="google()" class="btn btn-block btn-social btn-google">
-                                <span class="fa fa-google"></span> Sign in with Google
+                                <span class="fa fa-google"></span> Đăng nhập với Google
                             </a>
                         </li>
                     </ul>
@@ -39,10 +44,11 @@
             </div>
             <div class="col-sm-6">
                 <div class="shop-menu pull-right">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#" ng-click="accountclick()"><i class="fa fa-user"></i> Account</a></li>
-                        <li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                        <li><a href="#" ng-click="loginindex()"><i class="fa fa-lock"></i> Login</a></li>
+                    <ul class="nav navbar-nav" ng-init="isadmin = false">
+                        <li><a href="#" ng-show="isadmin"><i class="fa fa-shopping-cart" ></i> Thêm sản phẩm</a></li>
+                        <li><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                        <li><a href="#" ng-click="accountclick()" ng-show="islogin"><i class="fa fa-unlock"></i> Đăng xuất</a></li>
+                        <li><a href="#" ng-click="loginindex()" ng-hide="islogin"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                     </ul>
                 </div>
             </div>

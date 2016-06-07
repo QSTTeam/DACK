@@ -54,8 +54,8 @@ body{
     background-color: gainsboro;
 }
 
-.footer-item{
-
+.footer-item h4{
+    margin-left: 10px;
 }
 .footer-item ul li a{
     color:#696763;
