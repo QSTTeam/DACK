@@ -34,7 +34,7 @@
         </div>
         <div   id="headermenu"><!-- menu-->
             <div class="col-sm-3">
-                <a href="index.html" ><img src="images/logo.png" id="imglogo"/></a>
+                <a href="index.html" ><img ng-src="images/logo.png" id="imglogo"/></a>
             </div>
             <div class="col-sm-3">
                 <form action="#" class="search-product">
@@ -45,9 +45,9 @@
             <div class="col-sm-6">
                 <div class="shop-menu pull-right">
                     <ul class="nav navbar-nav">
-                        <li><a href="#" ng-show="isadmin"><i class="fa fa-shopping-cart" ></i> Xem đơn đặt hàng</a></li>
-                        <li><a href="#" ng-show="isadmin"><i class="fa fa-shopping-cart" ></i> Thêm sản phẩm</a></li>
-                        <li><a href="#"ng-click="xemgiohangclick()"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                        <li><a href="#" ng-show="isadmin"ng-click="xemdondathang()"><i class="fa fa-shopping-cart" ></i> Xem đơn đặt hàng</a></li>
+                        <li><a href="#" ng-show="isadmin"ng-click="themsampham()"><i class="fa fa-shopping-cart" ></i> Thêm sản phẩm</a></li>
+                        <li><a href="#"ng-click="xemgiohang()" ng-hide="isadmin"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                         <li><a href="#" ng-click="logout()" ng-show="islogin"><i class="fa fa-unlock"></i> Đăng xuất</a></li>
                         <li><a href="#" ng-click="login()" ng-hide="islogin"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                     </ul>

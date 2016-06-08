@@ -58,6 +58,13 @@ app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObje
 	{
 		$scope.authObj.$authWithOAuthPopup("google").then(function(authData) {
 			console.log("Logged in as:", authData);
+			var ob={
+				user:authData.google.displayName.toString(),
+				login:true,
+				loginadmin:false
+			}
+			sessionStorage.setItem("LOGIN", JSON.stringify(ob));
+			$window.location.href = "index.html";
 			//$scope.login=true;
 			//$window.location.href = "index.html";
 			//alert("Login with Google thành công ");
@@ -78,33 +85,50 @@ app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObje
 			} else {
 				//console.log(authData.facebook.displayName);
 				$scope.islogin = true;
+				var ob={
+					user:authData.facebook.displayName.toString(),
+					login:true,
+					loginadmin:false
+				}
+				sessionStorage.setItem("LOGIN", JSON.stringify(ob));
+				$window.location.href = "index.html";
 				//$window.location.href = "index.html";
 
 
 			}
 		});
 	};
-        $scope.Login=function()
+	$scope.Login=function()
 	{
-             angular.forEach($scope.adminRef, function(value){
-                if(value.tk==$scope.Username && value.mk==$scope.Password){
-                  // alert("Đăng nhập thành công");
-                   $scope.isAdmin = true;
-                   $window.location.href = "index.html"; // bỏ link trang admin vào
-                }
-            });
-            angular.forEach($scope.usersRef, function(value){
-                if(value.tk==$scope.Username && value.mk==$scope.Password){
-                   //alert("Đăng nhập thành công");
-                   $scope.isUser = true;
-                   $window.location.href = "index.html"; //bỏ link trang user vào
-                }
-            });
-            if($scope.isAdmin==false && $scope.isUser==false){
-                    alert("Đăng nhập thất bại");
-            }
-        };
-        $scope.loginindex=function(){
-            $window.location.href = "login.html";
-        };
+		angular.forEach($scope.adminRef, function(value){
+			if(value.tk==$scope.Username && value.mk==$scope.Password){
+				// alert("Đăng nhập thành công");
+				$scope.isAdmin = true;
+				var ob={
+					user:$scope.Username,
+					login:true,
+					loginadmin:true
+				}
+				sessionStorage.setItem("LOGIN", JSON.stringify(ob));
+				$window.location.href = "index.html"; // bỏ link trang admin vào
+			}
+		});
+		angular.forEach($scope.usersRef, function(value){
+			if(value.tk==$scope.Username && value.mk==$scope.Password){
+				//alert("Đăng nhập thành công");
+				$scope.isUser = true;
+				//var islogin="true";
+				var ob={
+					user:$scope.Username,
+					login:true,
+					loginadmin:false
+				}
+				sessionStorage.setItem("LOGIN", JSON.stringify(ob));
+				$window.location.href = "index.html"; //bỏ link trang user vào
+			}
+		});
+		if($scope.isAdmin==false && $scope.isUser==false){
+			alert("Đăng nhập thất bại");
+		}
+	};
 });

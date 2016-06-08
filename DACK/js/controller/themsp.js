@@ -16,7 +16,41 @@ app.controller("ProductController", function($scope,$firebaseArray, $firebaseObj
    $scope.plushchuot = false; 
    $scope.plushusb = false; 
    $scope.plushocung = false; 
-   $scope.plushram = false; 
+   $scope.plushram = false;
+    $scope.islogin=false;
+    $scope.isadmin=false;
+    $window.onload=function()
+
+    {
+
+        var x=sessionStorage.getItem("LOGIN");
+        var y=JSON.parse(x);
+        $scope.islogin=y.login;
+        $scope.isadmin=y.loginadmin;
+        $scope.tentaikhoan = y.user;
+
+    }
+
+    $scope.logout=function(){
+        if($scope.isloginfbgg){
+            $scope.authObj.$unauth();
+            $scope.islogin=false;
+            $scope.isloginfbgg=false;
+
+        }
+        else{
+            //xữ lý code
+
+
+        }
+        var ob={
+            user:"",
+            login:false,
+            loginadmin:false
+        }
+        sessionStorage.setItem("LOGIN", JSON.stringify(ob));
+        $window.location.href="index.html";
+    };
     $scope.DataSelecteds = [{id:1,name:"Laptop"},{id:2,name:"Chuột"},{id:3,name:"Usb"},{id:4,name:"Ổ cứng"},{id:5,name:"Ram"}];
   $scope.clears = function(){
             $scope.ten = "";

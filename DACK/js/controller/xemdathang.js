@@ -1,15 +1,7 @@
-/**
- * Created by Hoang Son on 6/7/2016.
- */
-
-app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$window){
-
-    var ref=new Firebase("https://dack-app.firebaseio.com/giohang");
-    $scope.arrr=$firebaseArray(ref);
-    var tentaikhoan = "tamlegay";
-
-    $scope.arr=[];
-
+app.controller('myXemdathangController',function($scope,$firebaseObject,$firebaseArray,$window)
+{
+    var refdonhang = new Firebase("https://dack-app.firebaseio.com/dathang");
+    $scope.arr=$firebaseArray(refdonhang);
     $scope.islogin=false;
     $scope.isadmin=false;
     $window.onload=function()
@@ -22,21 +14,6 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
         $scope.isadmin=y.loginadmin;
         $scope.tentaikhoan = y.user;
 
-    }
-    $scope.update=function()
-    {
-        angular.forEach($scope.arrr,function(value) {
-
-            if (value.tenuser ==tentaikhoan)
-            {
-                var strid="https://dack-app.firebaseio.com/giohang/"+value.$id.toString()+"/hang";
-
-                var temp=new Firebase(strid);
-                $scope.arr=$firebaseArray(temp);
-
-                console.log($scope.arr);
-            }
-        });
     }
 
     $scope.logout=function(){
@@ -59,5 +36,4 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
         sessionStorage.setItem("LOGIN", JSON.stringify(ob));
         $window.location.href="index.html";
     };
-
 });

@@ -18,6 +18,12 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.giohangitem button
+{
+    background-color: #ec971f ;
+    color: #ffffff;
+    height: 40px;
+}
 .giohang-item-detail{
     display: inline;
 }
@@ -31,4 +37,31 @@
 }
 .form-tinhtien{
     font-family: 'Roboto', sans-serif;
+}
+.form-tinhtien p
+{
+    color: #696763;
+    font-size: 30px;
+    text-align: center;
+}
+.cart_info {
+    border: 1px solid #E6E4DF;
+    margin-bottom: 50px
+}
+.cart_info .cart_menu {
+    background: #FE980F;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+}
+.cart_info .table.table-condensed tbody  {
+    font-size: 20px;
+}
+.cart_info .table.table-condensed tbody tr {
+    text-align: center;
+}
+.cart_info .table.table-condensed thead tr {
+    height: 50px;
+    text-align: center;
 }
