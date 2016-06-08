@@ -1,4 +1,4 @@
-app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObject, $window,$firebaseAuth)
+app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObject, $window,$firebaseAuth,myService)
 {
 	var refusers = new Firebase("https://dack-app.firebaseio.com/users");
 	var refadmin = new Firebase("https://dack-app.firebaseio.com/admins");
@@ -19,7 +19,21 @@ app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObje
 	}
 	$scope.Signup=function()
 	{
-
+		if(myService.KiemTraRong($scope.UsernameSignup)==true || myService.KiemTraDoDai($scope.UsernameSignup)==false)
+		{
+			alert("Độ dài Username phài từ 6 đến 20 kí tự");
+			$scope.isSignup=false;
+		}
+		if(myService.KiemTraRong($scope.PasswordSignup)==true || myService.KiemTraDoDai($scope.PasswordSignup)==false )
+		{
+			alert("Độ dài Password phài từ 6 đến 20 kí tự");
+			$scope.isSignup=false;
+		}
+		if(myService.KiemTraBangNhau($scope.PasswordSignup,$scope.RetypePasswordSignup)==false)
+		{
+			alert("Password và RetypePassword phải trùng nhau");
+			$scope.isSignup=false;
+		}
 		if($scope.isSignup==true) //m bỏ code push vào hàm này
 		{       
                         angular.forEach($scope.usersRef, function(value){
@@ -62,8 +76,8 @@ app.controller('myLoginController',function($scope,$firebaseArray, $firebaseObje
 				console.log("Login Failed!", error);
 				alert("Login with Facebook thất bại ");
 			} else {
-				console.log(authData.facebook.displayName);
-				//$scope.login = true;
+				//console.log(authData.facebook.displayName);
+				$scope.islogin = true;
 				//$window.location.href = "index.html";
 
 

@@ -43,7 +43,7 @@
 
         </div>
         <div class="col-sm-8 giohangitem" >
-            <div class="giohang-item-detail col-sm-12">
+            <div class="giohang-item-detail col-sm-12"ng-repeat="x in data">
                 <div class="col-sm-3">
                     <img src="images/dell-1.jpg"/>
                 </div>
@@ -76,12 +76,12 @@
                 <div class="col-sm-4">{{tongtien}}</div>
             </div>
             <br/>
-            <input type="submit"value="Thanh toán đơn hàng"/>
+            <input type="submit"value="Thanh toán đơn hàng" ng-click="Update()"/>
         </div>
 
 
     </div>
-    
+
     <div ng-include="'component/footer.htm'"></div>
 </body>
 </html>

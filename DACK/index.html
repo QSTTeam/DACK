@@ -41,100 +41,48 @@
                         <div class="carousel-inner">
                             <div class="item active">
                                 <div class="col-sm-4 col-sm-offset-1">
-                                    <h1>{{datalaptop[1].ten}}</h1>
+                                    <h1>{{datalaptop[0].ten}}</h1>
                                     <ul>
-                                        <li>{{datalaptop[1].cpu}}</li>
-                                        <li>DDRAM <b>1x4GB/1600</b> (1slot)</li>
-                                        <li>HDD <b>500GB</b> 5400rpm</li>
-                                        <li><b>Intel HD Graphics</b></li>
-                                        <li>15.6" HD Led (1366x768) - HDMI - Webcam</li>
-                                        <li>No DVD</li>
-                                        <li>No Lan - Wifi - Bluetooth</li>
-                                        <li>Reader - USB 3.0, 2xUSB 2.0</li>
-                                        <li>Weight 2.19kg - Battery 40Whrs</li>
-                                        <li><b>OS Windows 10 Home SL 64bit</b></li>
-                                        <li><b>Bảo hành 12 tháng</b></li>
+                                        <li>{{datalaptop[0].manhinh}}</li>
+                                        <li>{{datalaptop[0].cpu}}</li>
+                                        <li>{{datalaptop[0].hdh}}</li>
+                                        <li>{{datalaptop[0].ram}}</li>
+                                        <li>{{datalaptop[0].vga}}</li>
                                     </ul>
                                     <br>
-                                    <center><b><i class="fa fa-circle-o"></i> 7.490.000 VNĐ</b></center>
+                                    <center><b><i class="fa fa-circle-o"></i>{{datalaptop[0].gia}}</b></center>
                                     <br>
                                     <button class="btn btn-danger">
-                                        <i class="fa fa-shopping-cart"></i> Mua hàng
-                                    </button>
-                                    <button class="btn btn-info">
-                                        Xem giỏ hàng
+                                        <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
                                     </button>
                                     <br><br>
-
                                 </div>
                                 <div class="col-sm-3">
-                                    <img ng-src="images/dell-1.jpg" alt="" width="460" height="345">
+                                    <img ng-src="{{datalaptop[0].img}}" alt="" width="300" height="300">
                                 </div>
 
                             </div>
 
-                            <div class="item">
+                            <div class="item" ng-repeat="x in datalaptop" ng-if="$index <3 && $index>0">
                                 <div class="col-sm-4 col-sm-offset-1">
-                                    <h1>Laptop Dell Vostro 5480-VTI31008 (Bạc)</h1>
+                                    <h1>{{x.ten}}</h1>
                                     <ul>
-                                        <li>Intel <b>Core i3-4005U</b> 1.7GHz - 3M</li>
-                                        <li>DDRAM 4GB/1600 (1 slots)</li>
-                                        <li>HDD 500GB SATA 5400rpm</li>
-                                        <li><b>Intel HD Graphics 4400</b></li>
-                                        <li>No DVD</li>
-                                        <li>Card Reader - USB 3.0</li>
-                                        <li>14.0" HD LED - HDMI - Webcam</li>
-                                        <li>LAN 10/100/1000 - Wireless N - Bluetooth</li>
-                                        <li>Weight 1.5Kg - Battery 3 Cell</li>
-                                        <li><b>OS Option</b></li>
-                                        <li><b>Bảo hành 12 Tháng</b></li>
+                                        <li>{{x.manhinh}}</li>
+                                        <li>{{x.cpu}}</li>
+                                        <li>{{x.hdh}}</li>
+                                        <li>{{x.ram}}</li>
+                                        <li>{{x.vga}}</li>
                                     </ul>
                                     <br>
-                                    <center><b><i class="fa fa-circle-o"></i> 11.590.000 VNĐ</b></center>
+                                    <center><b><i class="fa fa-circle-o"></i>{{x.gia}}</b></center>
                                     <br>
                                     <button class="btn btn-danger">
-                                        <i class="fa fa-shopping-cart"></i> Mua hàng
-                                    </button>
-                                    <button class="btn btn-info">
-                                        Xem giỏ hàng
+                                        <i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
                                     </button>
                                     <br><br>
                                 </div>
                                 <div class="col-sm-3">
-                                    <img ng-src="images/dell-2.jpg" alt="" width="460" height="345">
-                                </div>
-
-                            </div>
-
-                            <div class="item">
-                                <div class="col-sm-4 col-sm-offset-1">
-                                    <h1>Máy xách tay Laptop Dell 3458-TXTGH2 (Đen)</h1>
-                                    <ul>
-                                        <li>Intel <b>Core i3-5005U</b> 2.0GHz - 3M</li>
-                                        <li>DDRAM <b>4GB/1600</b> (2 slots)</li>
-                                        <li>HDD <b>500GB</b> SATA3 5400rpm</li>
-                                        <li>No DVD</li>
-                                        <li><b>Intel HD 5500</b></li>
-                                        <li>14.0" HD LED - HDMI - Webcam</li>
-                                        <li>Card Reader - USB 3.0 - 2x USB 2.0</li>
-                                        <li>LAN 10/100 - Wireless N - Bluetooth 4.0</li>
-                                        <li>Weight 1.82Kg - Battery 4 Cell (40Wh)</li>
-                                        <li>OS Option</li>
-                                        <li><b>Bảo hành 1 năm</b></li>
-                                    </ul>
-                                    <br>
-                                    <center><b><i class="fa fa-circle-o"></i> 9.690.000 VNĐ</b></center>
-                                    <br>
-                                    <button class="btn btn-danger">
-                                        <i class="fa fa-shopping-cart"></i> Mua hàng
-                                    </button>
-                                    <button class="btn btn-info">
-                                        Xem giỏ hàng
-                                    </button>
-                                    <br><br>
-                                </div>
-                                <div class="col-sm-3">
-                                    <img ng-src="images/dell-3.jpg" alt="" width="460" height="345">
+                                    <img ng-src="{{x.img}}" alt="" width="460" height="345">
                                 </div>
 
                             </div>
@@ -187,12 +135,10 @@
                                 <div id="laptop" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul>
-                                            <li><a href="#">Acer</a></li>
-                                            <li><a href="#">Asus</a></li>
-                                            <li><a href="#">HP</a></li>
-                                            <li><a href="#">Dell</a></li>
-                                            <li><a href="#">Lenovo</a></li>
-                                            <li><a href="#">Toshiba</a></li>
+                                            <li><a ng-click="acerfind()" href="#">Acer</a></li>
+                                            <li><a ng-click="asusfind()" href="#">Asus</a></li>
+                                            <li><a ng-click="hpfind()" href="#">HP</a></li>
+                                            <li><a ng-click="dellfind()" href="#">Dell</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -205,17 +151,17 @@
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordian" href="#pc">
                                             <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                            Ram
+                                            Phụ Kiện
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="pc" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul>
-                                            <li><a href="#">Kingston</a></li>
-                                            <li><a href="#">Kingmax</a></li>
-                                            <li><a href="#">Corair</a></li>
-                                            <li><a href="#">Dell</a></li>
+                                            <li><a ng-click="chuotfind()" href="#">Chuột</a></li>
+                                            <li><a ng-click="ocungfind()" href="#">Ổ Cứng</a></li>
+                                            <li><a ng-click="usbfind()" href="#">USB</a></li>
+                                            <li><a ng-click="ramfind()" href="#">Ram</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -225,7 +171,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-9 padding right">
+                <div class="col-sm-9 padding right" ng-show="laptopall">
                     <div class="feature_items">
                         <h2 class="title text-center">Features Items</h2>
                         <div ng-repeat="x in datalaptop">
@@ -258,7 +204,172 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-9 padding right" ng-show="selectlaptop">
+                    <div class="feature_items">
+                        <h2 class="title text-center">Features Items</h2>
+                        <div ng-repeat="x in asusdata">
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="{{x.img}}" alt="" width="200" height="200">
+                                            <h2>{{x.gia}}</h2>
+                                            <p>{{x.ten}}</p>
+                                            <a href="#" class="btn btn-danger"><i class="fa fa-shopping-cart"></i> Mua hàng</a>
+                                        </div>
 
+                                        <div class="product-overlay">
+                                            <div class="overlay-content">
+                                                <h2>{{x.gia}}</h2>
+                                                <p>{{x.ten}}</p>
+                                                <p>{{x.cpu}}</p>
+                                                <p>Ram: {{x.ram}}</p>
+                                                <p>{{x.manhinh}}</p>
+                                                <p>{{x.vga}}</p>
+                                                <a href="#" class="btn btn-danger"><i class="fa fa-shopping-cart"></i> Mua hàng</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9 padding right" ng-show="chuotall">
+                    <div class="feature_items">
+                        <h2 class="title text-center">Features Items</h2>
+                        <div ng-repeat="x in datachuot">
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img ng-src="{{x.img}}" alt="" width="200" height="200">
+                                            <h2>{{x.gia}}</h2>
+                                            <p>{{x.ten}}</p>
+                                            <a href="#" class="btn btn-danger" ng-click="Muahang()"><i class="fa fa-shopping-cart"></i> Mua hàng</a>
+
+                                        </div>
+
+                                        <div class="product-overlay">
+                                            <div class="overlay-content">
+                                                <h2>{{x.ten}}</h2>
+                                                <p>Cổng:{{x.cong}}</p>
+                                                <p>Độ phân giải quang học:{{x.dpi}}</p>
+                                                <p>Loại:{{x.loai}}</p>
+                                                <p>Model: {{x.model}}</p>
+                                                <p>Kích thước:{{x.size}}</p>
+                                                <p>{{x.vga}}</p>
+                                                <a href="#" class="btn btn-danger"ng-click="Muahang()"><i class="fa fa-shopping-cart"></i> Mua hàng</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9 padding right" ng-show="ocungall">
+                    <div class="feature_items">
+                        <h2 class="title text-center">Features Items</h2>
+                        <div ng-repeat="x in dataocung">
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img ng-src="{{x.img}}" alt="" width="200" height="200">
+                                            <h2>{{x.gia}}</h2>
+                                            <p>{{x.ten}}</p>
+                                            <a href="#" class="btn btn-danger" ng-click="Muahang()"><i class="fa fa-shopping-cart"></i> Mua hàng</a>
+
+                                        </div>
+
+                                        <div class="product-overlay">
+                                            <div class="overlay-content">
+                                                <h2>{{x.ten}}</h2>
+                                                <p>Dung lượng:{{x.dungluong}}</p>
+                                                <p>Tốc độ vòng quay:{{x.tocdo}}</p>
+                                                <a href="#" class="btn btn-danger"ng-click="Muahang()"><i class="fa fa-shopping-cart"></i> Mua hàng</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9 padding right" ng-show="usball">
+                    <div class="feature_items">
+                        <h2 class="title text-center">Features Items</h2>
+                        <div ng-repeat="x in datausb">
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img ng-src="{{x.img}}" alt="" width="200" height="200">
+                                            <h2>{{x.gia}}</h2>
+                                            <p>{{x.ten}}</p>
+                                            <a href="#" class="btn btn-danger" ng-click="Muahang()"><i class="fa fa-shopping-cart"></i> Mua hàng</a>
+
+                                        </div>
+
+                                        <div class="product-overlay">
+                                            <div class="overlay-content">
+                                                <h2>{{x.ten}}</h2>
+                                                <p>Nhà sản xuất:{{x.nsx}}</p>
+                                                <p>Dung lượng:{{x.dungluong}}</p>
+                                                <p>Tốc độ đọc lớn nhất:{{x.tocdodoc}}</p>
+                                                <p>Kích thước:{{x.tsize}}</p>
+                                                <p>Model:{{x.model}}</p>
+                                                <p>Cổng giao tiếp:{{x.cong}}</p>
+                                                <p>Tốc độ ghi lớn nhất:{{x.tocdoghi}}</p>
+                                                <a href="#" class="btn btn-danger"ng-click="Muahang()"><i class="fa fa-shopping-cart"></i> Mua hàng</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9 padding right" ng-show="ramall">
+                    <div class="feature_items">
+                        <h2 class="title text-center">Features Items</h2>
+                        <div ng-repeat="x in dataram">
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img ng-src="{{x.img}}" alt="" width="200" height="200">
+                                            <h2>{{x.gia}}</h2>
+                                            <p>{{x.ten}}</p>
+                                            <a href="#" class="btn btn-danger" ng-click="Muahang()"><i class="fa fa-shopping-cart"></i> Mua hàng</a>
+
+                                        </div>
+
+                                        <div class="product-overlay">
+                                            <div class="overlay-content">
+                                                <h2>{{x.ten}}</h2>
+                                                <p>Nhà sản xuất:{{x.nsx}}</p>
+                                                <p>Dung lượng:{{x.dungluong}}</p>
+                                                <p>Tốc độ đọc lớn nhất:{{x.tocdodoc}}</p>
+                                                <p>Kích thước:{{x.tsize}}</p>
+                                                <p>Model:{{x.model}}</p>
+                                                <p>Cổng giao tiếp:{{x.cong}}</p>
+                                                <p>Tốc độ ghi lớn nhất:{{x.tocdoghi}}</p>
+                                                <a href="#" class="btn btn-danger"ng-click="Muahang()"><i class="fa fa-shopping-cart"></i> Mua hàng</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
