@@ -6,7 +6,7 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
 
     var ref=new Firebase("https://dack-app.firebaseio.com/giohang");
     $scope.arrr=$firebaseArray(ref);
-    var tentaikhoan = "tamlegay";
+    //var tentaikhoan = "tamlegay";
 
     $scope.arr=[];
 
@@ -27,7 +27,7 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
     {
         angular.forEach($scope.arrr,function(value) {
 
-            if (value.tenuser ==tentaikhoan)
+            if (value.tenuser == $scope.tentaikhoan)
             {
                 var strid="https://dack-app.firebaseio.com/giohang/"+value.$id.toString()+"/hang";
 
@@ -59,5 +59,9 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
         sessionStorage.setItem("LOGIN", JSON.stringify(ob));
         $window.location.href="index.html";
     };
+
+    $scope.thanhtoan=function(){
+        $window.location.href="nhapthongtindathang.html";
+    }
 
 });
