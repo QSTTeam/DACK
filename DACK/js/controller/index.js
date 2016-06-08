@@ -179,8 +179,15 @@ app.controller("customersCtrl", function($scope,$firebaseArray, $firebaseObject,
    }
 
    $scope.xemgiohang=function () {
+       if($scope.islogin){
       $window.location.href="giohang.html";
-   }
+      }
+      else
+      {
+        $window.location.href="login.html";
+      }
+       
+   };
    
    //xu lý category
 
