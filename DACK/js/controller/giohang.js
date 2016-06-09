@@ -52,7 +52,7 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
         $scope.isadmin=y.loginadmin;
         $scope.tentaikhoan = y.user;
 
-    }
+    };
 
 
     $scope.logout=function(){
@@ -78,7 +78,7 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
 
     $scope.thanhtoan=function(){
         $window.location.href="nhapthongtindathang.html";
-    }
+    };
 
     $scope.Xoahang=function(maid){
         var strid="https://dack-app.firebaseio.com/giohang/"+$scope.idhang+"/hang/"+maid.toString();
