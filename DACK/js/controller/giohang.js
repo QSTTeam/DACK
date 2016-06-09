@@ -86,6 +86,7 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
         var temp=new Firebase(strid);
         //console.log(strid);
         temp.remove();
+        $scope.tinhtien();
     };
 
 });
