@@ -6,8 +6,38 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
 
     var ref=new Firebase("https://dack-app.firebaseio.com/giohang");
     $scope.arrr=$firebaseArray(ref);
+    $scope.arr = [];
     //var tentaikhoan = "tamle12345";
+    $scope.arrr.$loaded().then(function() {
+        angular.forEach($scope.arrr,function(value) {
 
+            if (value.tenuser == $scope.tentaikhoan)
+            {
+                $scope.idhang=value.$id.toString();
+                var strid="https://dack-app.firebaseio.com/giohang/"+value.$id.toString()+"/hang";
+
+                var temp=new Firebase(strid);
+                $scope.arr=$firebaseArray(temp);
+                $scope.tinhtien();
+            }
+        });
+          
+    });
+    $scope.tinhtien = function(){
+        $scope.arr.$loaded().then(function() {
+            var tongtien = 0;
+            angular.forEach($scope.arr,function(value) {
+                    var gia = value.price;
+
+                    var a = gia.substring(0,gia.length-1);
+                    a = a.replace('.','');
+                    a = a.replace('.','');
+                    a = a.replace('.','');
+                    tongtien =tongtien + parseInt(a);
+              });
+              $scope.tongtien = tongtien ;
+      });
+    };
     $scope.arr=[];
 
     $scope.islogin=false;
@@ -23,22 +53,7 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
         $scope.tentaikhoan = y.user;
 
     }
-    $scope.update=function()
-    {
-        angular.forEach($scope.arrr,function(value) {
 
-            if (value.tenuser == $scope.tentaikhoan)
-            {
-                $scope.idhang=value.$id.toString();
-                var strid="https://dack-app.firebaseio.com/giohang/"+value.$id.toString()+"/hang";
-
-                var temp=new Firebase(strid);
-                $scope.arr=$firebaseArray(temp);
-
-                console.log($scope.arr);
-            }
-        });
-    }
 
     $scope.logout=function(){
         if($scope.isloginfbgg){

@@ -39,9 +39,8 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="x in arr">
-                    <td><img ng-src="{{x.img}}"></td>
                     <td>{{x.information}}</td>
-                    <td>{{x.$id}}</td>
+                    <td>{{x.price}}</td>
 
                     <td ><a class="btn btn-success" href="#" ng-click="Xoahang(x.$id)">
                         <span class="glyphicon glyphicon-remove"></span> Xóa</a>
@@ -51,7 +50,6 @@
                 </tbody>
             </table>
         </div>
-        <button class="col-sm-3 col-sm-offset-9" ng-click="update()">Cập nhật giỏ hàng</button>
 
     </div>
     <div class="col-sm-4 form-tinhtien">
@@ -59,29 +57,10 @@
         <hr/>
         <div class="col-sm-12">
             <div class="col-sm-8">
-                <h4>Tạm tính:</h4>
+                <h4>Thành tiền :</h4>
             </div>
             <div class="col-sm-4">
-                <h4>{{tinhtiengiohang}}</h4>
-            </div>
-        </div>
-        <br/><br/>
-        <div class="col-sm-12">
-            <div class="col-sm-8">
-                <h4>Khuyến mãi:</h4>
-            </div>
-            <div class="col-sm-4">
-                <h4>{{tienkhuyenmai}}</h4>
-            </div>
-        </div>
-        <br/>
-        <hr/>
-        <div class="col-sm-12">
-            <div class="col-sm-8">
-                <h4>Thành tiền(đã bao gồm VAT):</h4>
-            </div>
-            <div class="col-sm-4">
-                <h4>{{tongtien}}</h4>
+                <h4>{{tongtien}}đ</h4>
             </div>
         </div>
         <br/>

@@ -36,13 +36,13 @@
                                     <p>Tên :<input type="text" ng-model="ten" placeholder="Họ & tên"/></p>
                                     <p>Địa chỉ số nhà đường:<input type="text" ng-model="diachinha" placeholder="Địa chỉ số nhà đường"/></p>
                                     <p>Số điện thoại:<input type="text" ng-model="sdt" placeholder="Số điện thoại"/></p>
-                                    <button type="submit"  class="btn btn-default" ng-click="dathang()">Tiếp tục <i class="fa fa-angle-right"></i></button>
-                                    <button ng-show="datshow" type="submit"  class="btn btn-default" ng-click="dat()">Thanh toán <i class="fa fa-angle-right"></i></button>
+                                    <button type="submit"  class="btn btn-default" ng-click="dathang()">Đặt hàng</button>
+                                    
                                 </form>
                             </div>
                         </div>
                         <div class="col-sm-7">
-                            <div class="product-info" ng-show="tongshow">
+                            <div class="product-info">
                                 <h2> Thông tin đơn hàng</h2>
                                 </br>
                                  <table class="table table-condensed">
@@ -55,13 +55,12 @@
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="x in hang">
-                                    <td><img ng-src="{{x.img}}"></td>
                                     <td>{{x.information}}</td>
                                     <td>{{x.price}}</td>
-                                </tr>
-
+                                </tr>                                 
                                 </tbody>
                             </table>
+                                <h2>Tổng tiền: {{tongtien}}đ</h2>
                             </div>
                         </div>
 

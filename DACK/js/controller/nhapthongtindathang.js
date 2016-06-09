@@ -45,14 +45,14 @@ app.controller("myNhapthongtinCtrl", function($scope,$firebaseArray, $firebaseOb
     $scope.datshow = false;
     $scope.tongshow = false;
     
-    $scope.dathang = function(){  
-      $scope.datshow = true;
-      $scope.today = $filter('date')(new Date(), 'dd/MM/yyyy');
-         var refgiohang=new Firebase("https://dack-app.firebaseio.com/giohang");
-         var dathangref=new Firebase("https://dack-app.firebaseio.com/dathang");
-         $scope.mangdathang= $firebaseArray(dathangref);
-        $scope.giohang=$firebaseArray(refgiohang);
-        
+    //load data------------------
+    $scope.today = $filter('date')(new Date(), 'dd/MM/yyyy');
+    var refgiohang=new Firebase("https://dack-app.firebaseio.com/giohang");
+    var dathangref=new Firebase("https://dack-app.firebaseio.com/dathang");
+    $scope.mangdathang= $firebaseArray(dathangref);
+    $scope.giohang=$firebaseArray(refgiohang);
+    
+     $scope.arrr.$loaded().then(function() {
          angular.forEach($scope.arrr,function(value) {
 
             if (value.tenuser == $scope.tentaikhoan)
@@ -61,49 +61,41 @@ app.controller("myNhapthongtinCtrl", function($scope,$firebaseArray, $firebaseOb
                 var strid="https://dack-app.firebaseio.com/giohang/"+value.$id.toString()+"/hang";      
                 var temp=new Firebase(strid);
                 $scope.hang=$firebaseArray(temp);
-                $scope.tongshow = true;
+                $scope.dat();
             }
         });
-//            angular.forEach($scope.giohang,function(value) {
-//                
-//               if (value.tenuser == $scope.tentaikhoan)
-//               {
-//                  var strid="https://dack-app.firebaseio.com/giohang/"+value.$id.toString()+"/hang";
-//
-//                   var temp=new Firebase(strid);
-//                  $scope.hang = $firebaseArray(temp);
-//                  
-//              }
-//          });
-          
-          //$scope.tongtien = 0;
-          //var tongtien = 0;
-          angular.forEach($scope.hang,function(value) {
-              alert(value.price);
+     });
+    $scope.dathang = function(){  
+            $scope.mangdathang.$add({
+            tentk:$scope.tentaikhoan,
+            tenkh:$scope.ten,
+            diachi:$scope.diachinha,
+            sdt:$scope.sdt,
+            ngaydat:$scope.today,
+            hang : $scope.hang,
+            tongtien: $scope.tongtien,
+            thanhtoan: "Chưa thanh toán"        
           });
-//          angular.forEach($scope.hang,function(value){
-//              alert("sfsa");
-//                var gia = value.price;
-//                
-//                var a = gia.subsubstring(0,gia.length-1);
-//                a = a.replace('.','');
-//                a = a.replace('.','');
-//                a = a.replace('.','');
-//                tongtien =tongtien + parseInt(a);
-//                //$scope.tongtien = $scope.tongtien + a;
-//          });
-//          $scope.mangdathang.$add({
-//            tentk:$scope.tentaikhoan,
-//            tenkh:$scope.ten,
-//            diachi:$scope.diachinha,
-//            sdt:$scope.sdt,
-//            ngaydat:$scope.today,
-//            hang : $scope.hang,
-//            tongtien: tongtien
-//          });
+          angular.forEach($scope.arrr,function(value) {
+
+            if (value.tenuser == $scope.tentaikhoan)
+            {
+                $scope.idhang=value.$id.toString();
+                var strid="https://dack-app.firebaseio.com/giohang/"+value.$id.toString();
+
+                var temp=new Firebase(strid);
+                temp.remove();
+            }
+        });
+          alert("Đặt hàng thành công !");
+          
     };
-    
+    $scope.xemgiohang= function(){
+      //if danh nhap hoac k co hang
+      $window.location.href="giohang.html";
+   };
     $scope.dat = function(){
+        $scope.hang.$loaded().then(function() {
         var tongtien = 0;
         angular.forEach($scope.hang,function(value) {
                 var gia = value.price;
@@ -115,16 +107,7 @@ app.controller("myNhapthongtinCtrl", function($scope,$firebaseArray, $firebaseOb
                 tongtien =tongtien + parseInt(a);
                 //$scope.tongtien = $scope.tongtien + a;
           });
-            $scope.mangdathang.$add({
-            tentk:$scope.tentaikhoan,
-            tenkh:$scope.ten,
-            diachi:$scope.diachinha,
-            sdt:$scope.sdt,
-            ngaydat:$scope.today,
-            hang : $scope.hang,
-            tongtien: tongtien,
-            thanhtoan: "Chưa thanh toán"        
-          });
-          alert("Đặt hàng thành công !");
+          $scope.tongtien = tongtien;
+      });
     };
 });
