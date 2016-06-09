@@ -6,14 +6,14 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
 
     var ref=new Firebase("https://dack-app.firebaseio.com/giohang");
     $scope.arrr=$firebaseArray(ref);
-    //var tentaikhoan = "tamlegay";
+    //var tentaikhoan = "tamle12345";
 
     $scope.arr=[];
 
     $scope.islogin=false;
     $scope.isadmin=false;
+    $scope.idhang = "";
     $window.onload=function()
-
     {
 
         var x=sessionStorage.getItem("LOGIN");
@@ -29,6 +29,7 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
 
             if (value.tenuser == $scope.tentaikhoan)
             {
+                $scope.idhang=value.$id.toString();
                 var strid="https://dack-app.firebaseio.com/giohang/"+value.$id.toString()+"/hang";
 
                 var temp=new Firebase(strid);
@@ -63,5 +64,13 @@ app.controller('giohangctrl',function($scope,$firebaseArray,$firebaseObject,$win
     $scope.thanhtoan=function(){
         $window.location.href="nhapthongtindathang.html";
     }
+
+    $scope.Xoahang=function(maid){
+        var strid="https://dack-app.firebaseio.com/giohang/"+$scope.idhang+"/hang/"+maid.toString();
+
+        var temp=new Firebase(strid);
+        //console.log(strid);
+        temp.remove();
+    };
 
 });
